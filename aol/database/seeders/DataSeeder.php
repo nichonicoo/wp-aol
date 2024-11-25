@@ -39,7 +39,7 @@ class DataSeeder extends Seeder
                     'Location' => fake()->randomElement($locs),
                     'Tingkat-Kesulitan' => fake()->randomElement($tingkats),
                     'Status' => fake()->randomElement($stats),
-                    'clients_id' => fake()->numberBetween(1, 10),
+                    'users_id' => fake()->numberBetween(1, 10),
                     'photo_url' => fake()->randomElement($ph)
                 ]
             );

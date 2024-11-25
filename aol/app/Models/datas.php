@@ -6,5 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class datas extends Model
 {
-    //
+    protected $fillable = [
+        'photo_url',
+        'Title',
+        'Description',
+        'Location',
+        'Tingkat-Kesulitan',
+        'Status',
+        'clients_id'
+    ];
+
 }

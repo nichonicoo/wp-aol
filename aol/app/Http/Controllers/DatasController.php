@@ -5,22 +5,24 @@ namespace App\Http\Controllers;
 use App\Models\datas;
 use Illuminate\Http\Request;
 
-class DatasController extends Controller
+ class DatasController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return view('assets.index');
     }
+
+
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+        return view('assets.create');
     }
 
     /**
@@ -28,7 +30,18 @@ class DatasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $data = $request->validate([
+            'Title' => 'required',
+            'Description' => 'required',
+            'Location' => 'required',
+            'Tingkat-Kesulitan' => 'required'
+            // 'photo_url' => 'required'
+        ]);
+
+        $newDatas = datas::create($data);
+
+        return redirect(route('products.index'));
     }
 
     /**

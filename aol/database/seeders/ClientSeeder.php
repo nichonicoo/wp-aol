@@ -18,6 +18,7 @@ class ClientSeeder extends Seeder
             DB::table('clients')->insert([
                 'first_name' => fake()->firstName('female'),
                 'role' => 'user',
+                'email' => fake()->email(),
                 'last_name' => fake()->lastName('female'),
                 'username' => fake()->userName(),
                 'birth_date' => fake()->dateTimeBetween('-20 years', '-5 years'),
@@ -29,6 +30,7 @@ class ClientSeeder extends Seeder
             [
                 'first_name' => 'admins',
                 'role' => 'admin',
+                'email' => 'admin@admin.com',
                 'last_name' => 'admins',
                 'username' => 'admin',
                 'birth_date' => fake()->dateTimeBetween('-20 years', '-5 years'),

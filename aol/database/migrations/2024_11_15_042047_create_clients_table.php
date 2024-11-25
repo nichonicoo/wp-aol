@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('last_name', 120);
             $table->string('role', 10);
             $table->string('username', 50);
+            $table->string('email', 120);
             $table->date('birth_date');
             $table->string('password', 120);
             $table->string('photo')->nullable();
