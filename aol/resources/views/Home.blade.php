@@ -27,14 +27,6 @@
                         </li>
                         <li
                             class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                            <a href="#">Our services</a>
-                        </li>
-                        <li
-                            class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                            <a href="#">About</a>
-                        </li>
-                        <li
-                            class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
                             <a href="/OurTeam">Our Team</a>
                         </li>
                         <li
