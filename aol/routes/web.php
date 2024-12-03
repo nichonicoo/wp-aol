@@ -6,9 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 // Public Routes
-Route::get('/', function () {
-    return view('Home');
-})->name('home.index');
+Route::get('/', [DatasController::class, 'index'])->name('home.index');  // Route untuk menampilkan produk
 
 // Dashboard (Requires Authentication)
 Route::get('/dashboard', function () {
@@ -17,7 +15,6 @@ Route::get('/dashboard', function () {
 
 // Profile Routes (Only Accessible if Authenticated)
 Route::middleware('auth')->group(function () {
-    // View and Edit Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -38,4 +35,3 @@ Route::get('/contact', function () {
 
 // Authentication Routes (Login, Register, etc.)
 require __DIR__.'/auth.php';
-

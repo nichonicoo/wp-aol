@@ -1,0 +1,16 @@
+{
+  "name": "wp-aol",
+  "version": "1.0.0",
+  "description": "pls do 'cd aol', ubah port database jadi 3306 ya w punya 3308. \r php artisan migrate.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^6.0.2"
+  }
+}
