@@ -34,16 +34,12 @@ use Illuminate\Http\Request;
      */
     public function store(Request $request)
 {
-<<<<<<< Updated upstream
     // Validate the incoming request
-=======
->>>>>>> Stashed changes
     $data = $request->validate([
         'Title' => 'required',
         'Description' => 'required',
         'Location' => 'required',
         'Tingkat-Kesulitan' => 'required',
-<<<<<<< Updated upstream
         'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Image validation
     ]);
 
@@ -61,39 +57,10 @@ use Illuminate\Http\Request;
 
     // Redirect to the navigation page after successful submission
     return redirect()->route('navigation');
-=======
-        'Status' => 'required|string',  // Ensure Status is provided
-        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-    ]);
-
-    // Handling file upload if there's an image
-    if ($request->hasFile('image')) {
-        $imageName = time().'.'.$request->image->extension();
-        $request->image->move(public_path('images'), $imageName);
-        $data['image'] = $imageName;
-    }
-
-    // Store the new product, including the status field
-    $newDatas = datas::create([
-        'Title' => $data['Title'],
-        'Description' => $data['Description'],
-        'Location' => $data['Location'],
-        'Tingkat-Kesulitan' => $data['Tingkat-Kesulitan'],
-        'Status' => $data['Status'],  // Add the status value
-        'photo_url' => $data['image'] ?? null, // Add photo_url if it exists
-    ]);
-
-    // Redirect back to create with success message
-    return redirect(route('products.create'))->with('success', 'Product created successfully!')->with('product', $newDatas);
->>>>>>> Stashed changes
 }
 
 
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
     /**
      * Display the specified resource.
      */
