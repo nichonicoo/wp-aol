@@ -46,8 +46,11 @@ use Illuminate\Http\Request;
     // Handle image upload
     if ($request->hasFile('image')) {
         $imagePath = $request->file('image')->store('images', 'public');
-        $data['image'] = $imagePath;
+        $data['photo_url'] = $imagePath; // Store the path to the image in the 'photo_url' column
     }
+
+    // Set the authenticated user's ID for the 'users_id' column
+    $data['users_id'] = auth()->id();  // Ensure the user is authenticated
 
     // Store the product data in the database
     Datas::create($data);
@@ -55,6 +58,7 @@ use Illuminate\Http\Request;
     // Redirect to the navigation page after successful submission
     return redirect()->route('navigation');
 }
+
 
 
 
