@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\datas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
  class DatasController extends Controller
 {
@@ -22,24 +23,33 @@ use Illuminate\Http\Request;
      */
     public function create()
     {
-        // Retrieve Locations and Difficulty Levels from the database or use hardcoded values
+        // Define the available options for location, difficulty, and status
         $locations = ['Jakarta', 'Bali', 'Sumatra', 'Kalimantan', 'Papua', 'Surabaya', 'Aceh'];
         $tingkats = ['Sangat Susah', 'Susah', 'Normal', 'Gampang'];
+        $stats = ['Sudah Selesai', 'Sedang Dikerjakan', 'Sedang Di Diskusikan', 'Belum Dikerjakan'];
 
-        return view('assets.create', compact('locations', 'tingkats'));
+        // Pass them to the view
+        return view('assets.create', compact('locations', 'tingkats', 'stats'));
     }
+
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
 {
+    // Check if the user is authenticated
+    if (!Auth::check()) {
+        return redirect()->route('login'); // Redirect to login if the user is not authenticated
+    }
+
     // Validate the incoming request
     $data = $request->validate([
         'Title' => 'required',
         'Description' => 'required',
         'Location' => 'required',
         'Tingkat-Kesulitan' => 'required',
+        'Status' => 'required',  // Validate the Status field
         'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Image validation
     ]);
 
@@ -50,7 +60,7 @@ use Illuminate\Http\Request;
     }
 
     // Set the authenticated user's ID for the 'users_id' column
-    $data['users_id'] = auth()->id();  // Ensure the user is authenticated
+    $data['users_id'] = Auth::id();  // Ensure the user is authenticated
 
     // Store the product data in the database
     Datas::create($data);
