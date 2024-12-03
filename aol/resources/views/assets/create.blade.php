@@ -59,6 +59,18 @@
                     </select>
                 </div>
 
+                <!-- Status Select -->
+                <div class="mb-4">
+                    <label for="Status" class="block text-sm font-medium text-gray-700">Status</label>
+                    <select name="Status" id="Status"
+                        class="mt-1 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        @foreach($stats as $status)
+                            <option value="{{ $status }}">{{ $status }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+
                 <!-- Image Upload -->
                 <div class="mb-4">
                     <label for="image" class="block text-sm font-medium text-gray-700">Product Image</label>
