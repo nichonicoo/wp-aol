@@ -40,8 +40,12 @@
                 <!-- Location Input -->
                 <div class="mb-4">
                     <label for="Location" class="block text-sm font-medium text-gray-700">Location</label>
-                    <input type="text" name="Location" id="Location" placeholder="Enter location"
+                    <select name="Location" id="Location"
                         class="mt-1 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        @foreach($locations as $location)
+                            <option value="{{ $location }}">{{ $location }}</option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <!-- Difficulty Select -->
@@ -49,9 +53,9 @@
                     <label for="Tingkat-Kesulitan" class="block text-sm font-medium text-gray-700">Tingkat Kesulitan</label>
                     <select name="Tingkat-Kesulitan" id="Tingkat-Kesulitan"
                         class="mt-1 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                        <option value="Gampang">Gampang</option>
-                        <option value="Standar">Standar</option>
-                        <option value="Susah Sekali">Susah Sekali</option>
+                        @foreach($tingkats as $tingkat)
+                            <option value="{{ $tingkat }}">{{ $tingkat }}</option>
+                        @endforeach
                     </select>
                 </div>
 
@@ -65,7 +69,7 @@
                 <!-- Submit Button -->
                 <div class="flex justify-center">
                     <button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                        Create Product
+                        Create Forum
                     </button>
                 </div>
             </form>

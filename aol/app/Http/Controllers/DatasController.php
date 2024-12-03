@@ -12,9 +12,9 @@ use Illuminate\Http\Request;
      */
     public function index()
     {
-        return view('assets.index');
+    $datas = Datas::all();  // Fetch all products from the database
+    return view('layouts.navigation', compact('datas'));
     }
-
 
 
     /**
@@ -22,27 +22,41 @@ use Illuminate\Http\Request;
      */
     public function create()
     {
-        return view('assets.create');
+        // Retrieve Locations and Difficulty Levels from the database or use hardcoded values
+        $locations = ['Jakarta', 'Bali', 'Sumatra', 'Kalimantan', 'Papua', 'Surabaya', 'Aceh'];
+        $tingkats = ['Sangat Susah', 'Susah', 'Normal', 'Gampang'];
+
+        return view('assets.create', compact('locations', 'tingkats'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        // dd($request);
-        $data = $request->validate([
-            'Title' => 'required',
-            'Description' => 'required',
-            'Location' => 'required',
-            'Tingkat-Kesulitan' => 'required'
-            // 'photo_url' => 'required'
-        ]);
+{
+    // Validate the incoming request
+    $data = $request->validate([
+        'Title' => 'required',
+        'Description' => 'required',
+        'Location' => 'required',
+        'Tingkat-Kesulitan' => 'required',
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Image validation
+    ]);
 
-        $newDatas = datas::create($data);
-
-        return redirect(route('products.index'));
+    // Handle image upload
+    if ($request->hasFile('image')) {
+        $imagePath = $request->file('image')->store('images', 'public');
+        $data['image'] = $imagePath;
     }
+
+    // Store the product data in the database
+    Datas::create($data);
+
+    // Redirect to the navigation page after successful submission
+    return redirect()->route('navigation');
+}
+
+
 
     /**
      * Display the specified resource.

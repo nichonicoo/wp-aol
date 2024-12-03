@@ -34,6 +34,12 @@
                 <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2 text-red-500" />
             </div>
 
+            <!-- Show Password Checkbox -->
+            <div class="mb-4 flex items-center">
+                <input type="checkbox" id="show-password" class="mr-2">
+                <label for="show-password" class="text-sm text-gray-600">{{ __('Show Password') }}</label>
+            </div>
+
             <!-- Register Button -->
             <div class="flex items-center justify-between">
                 <x-primary-button class="bg-indigo-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
@@ -49,4 +55,19 @@
             </div>
         </form>
     </div>
+
+    <!-- JavaScript to toggle password visibility for both fields -->
+    <script>
+        document.getElementById('show-password').addEventListener('change', function() {
+            var passwordField = document.getElementById('password');
+            var confirmPasswordField = document.getElementById('password_confirmation');
+            if (this.checked) {
+                passwordField.type = 'text';
+                confirmPasswordField.type = 'text';
+            } else {
+                passwordField.type = 'password';
+                confirmPasswordField.type = 'password';
+            }
+        });
+    </script>
 </x-guest-layout>

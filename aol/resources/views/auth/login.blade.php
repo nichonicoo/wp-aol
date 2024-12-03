@@ -18,6 +18,12 @@
                 <x-input-label for="password" :value="__('Password')" class="text-lg font-semibold text-gray-700" />
                 <x-text-input id="password" class="block mt-2 w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:outline-none" type="password" name="password" required autocomplete="current-password" />
                 <x-input-error :messages="$errors->get('password')" class="mt-2 text-red-500" />
+
+                <!-- Show Password Checkbox -->
+                <div class="mt-2 flex items-center">
+                    <input type="checkbox" id="show-password" class="mr-2">
+                    <label for="show-password" class="text-sm text-gray-600">{{ __('Show Password') }}</label>
+                </div>
             </div>
 
             <!-- Remember Me -->
@@ -49,4 +55,16 @@
             </div>
         </form>
     </div>
+
+    <!-- JavaScript to toggle password visibility -->
+    <script>
+        document.getElementById('show-password').addEventListener('change', function() {
+            var passwordField = document.getElementById('password');
+            if (this.checked) {
+                passwordField.type = 'text';
+            } else {
+                passwordField.type = 'password';
+            }
+        });
+    </script>
 </x-guest-layout>

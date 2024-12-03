@@ -20,11 +20,17 @@
                     </svg>
                     <input class="pl-2 outline-none border-none w-full" type="email" name="email" value="" placeholder="Email" required/>
                 </div>
-                <div class="flex items-center border-2 py-2 px-3 rounded-md">
+                <div class="flex items-center border-2 py-2 px-3 rounded-md mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
                     </svg>
-                    <input class="pl-2 outline-none border-none w-full" type="password" name="password" id="" placeholder="Password" required/>
+                    <input class="pl-2 outline-none border-none w-full" type="password" name="password" id="password" placeholder="Password" required/>
+                </div>
+
+                <!-- Show Password Checkbox -->
+                <div class="flex items-center mb-4">
+                    <input type="checkbox" id="show-password" class="mr-2" />
+                    <label for="show-password" class="text-sm text-gray-600">Show Password</label>
                 </div>
             </div>
             <button type="submit" value="login" id="login" class="mt-6 w-full shadow-xl bg-gradient-to-tr from-blue-600 to-red-400 hover:to-red-700 text-indigo-100 py-2 rounded-md text-lg tracking-wide transition duration-1000">Login</button>
@@ -44,6 +50,18 @@
             &larr; Home
         </a>
     </div>
+
+    <!-- Script to toggle password visibility -->
+    <script>
+        document.getElementById('show-password').addEventListener('change', function() {
+            var passwordField = document.getElementById('password');
+            if (this.checked) {
+                passwordField.type = 'text';
+            } else {
+                passwordField.type = 'password';
+            }
+        });
+    </script>
 
 </body>
 </html>
