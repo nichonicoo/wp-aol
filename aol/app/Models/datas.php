@@ -13,7 +13,7 @@ class datas extends Model
         'Location',
         'Tingkat-Kesulitan',
         'Status',
-        'clients_id'
+        'users_id'
     ];
 
 }

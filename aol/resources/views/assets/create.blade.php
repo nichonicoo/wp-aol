@@ -11,6 +11,7 @@
 
 <body class="bg-gray-100 font-sans">
 
+
     <!-- Centered Container -->
     <div class="flex justify-center items-center min-h-screen bg-gray-100">
         <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
@@ -22,6 +23,10 @@
             <form action="{{ route('products.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('post')
+
+                {{-- id --}}
+
+                <input type="hidden" name="users_id" value="{{ Auth::user()->id }}">
 
                 <!-- Title Input -->
                 <div class="mb-4">
@@ -51,7 +56,7 @@
                 <!-- Difficulty Select -->
                 <div class="mb-4">
                     <label for="Tingkat-Kesulitan" class="block text-sm font-medium text-gray-700">Tingkat Kesulitan</label>
-                    <select name="Tingkat-Kesulitan" id="Tingkat-Kesulitan"
+                    <select name="Tingkats" id="Tingkat-Kesulitan"
                         class="mt-1 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
                         @foreach($tingkats as $tingkat)
                             <option value="{{ $tingkat }}">{{ $tingkat }}</option>
@@ -99,3 +104,4 @@
 </body>
 
 </html>
+

@@ -13,9 +13,26 @@ use Illuminate\Support\Facades\Auth;
      */
     public function index()
     {
-    $datas = Datas::all();  // Fetch all products from the database
-    return view('layouts.navigation', compact('datas'));
+    // $datas = Datas::all();  // Fetch all products from the database
+    // return view('layouts.navigation', compact('datas'));
+
+    $datas = Datas::where('users_id', Auth::id())->get();
+
+    // Pass the data to the view
+    return view('dashboard', compact('datas'));
     }
+
+    public function index_pubs()
+    {
+    // $datas = Datas::all();  // Fetch all products from the database
+    // return view('layouts.navigation', compact('datas'));
+
+    $datas = datas::all();
+
+    // Pass the data to the view
+    return view('Home', compact('datas'));
+    }
+
 
 
     /**
@@ -38,6 +55,7 @@ use Illuminate\Support\Facades\Auth;
      */
     public function store(Request $request)
 {
+
     // Check if the user is authenticated
     if (!Auth::check()) {
         return redirect()->route('login'); // Redirect to login if the user is not authenticated
@@ -59,11 +77,23 @@ use Illuminate\Support\Facades\Auth;
         $data['photo_url'] = $imagePath; // Store the path to the image in the 'photo_url' column
     }
 
+    $data['users_id'] = Auth::id();
+
     // Set the authenticated user's ID for the 'users_id' column
-    $data['users_id'] = Auth::id();  // Ensure the user is authenticated
+    // $data['users_id'] = Auth::id();  // Ensure the user is authenticated
 
     // Store the product data in the database
-    Datas::create($data);
+    // Datas::create($data);
+
+    datas::create([
+        'Title' => $request->Title,
+        'Description' => $request->Description,
+        'Location' => $request->Location,
+        'Tingkat-Kesulitan' => $data['Tingkat-Kesulitan'],
+        'users_id' => auth()->id(),
+        'Status' => $request->Status,
+        'photo_url' => $data['photo_url']
+    ]);
 
     // Redirect to the navigation page after successful submission
     return redirect()->route('navigation');
