@@ -8,7 +8,7 @@
 </head>
 <body>
     <!-- Display Success Message -->
-    @if(session('success'))
+    @if (session('success'))
         <div class="bg-green-500 text-white p-4 rounded-md mb-4 text-center">
             {{ session('success') }}
         </div>
@@ -81,7 +81,7 @@
     @yield('content')
 
     <!-- Displaying submitted data in a card container -->
-    @if(session('product'))
+    @if (session('product'))
         <div class="flex justify-center mt-8">
             <div class="max-w-sm w-full bg-white shadow-lg rounded-lg p-6">
                 <h2 class="text-xl font-semibold text-gray-800 mb-4">Product Details</h2>
@@ -112,7 +112,7 @@
 </html> --}}
 
 @extends('layouts.navigation')
-
+{{--
 @section('content')
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -133,4 +133,4 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}

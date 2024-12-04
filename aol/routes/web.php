@@ -28,11 +28,11 @@ Route::middleware('auth')->group(function () {
 // Other Pages (Public)
 Route::get('/OurTeam', function () {
     return view('OurTeam');
-});
+})->name('aboutus');
 
 Route::get('/contact', function () {
     return view('Contact');
 })->name('contact');
 
 // Authentication Routes (Login, Register, etc.)
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
