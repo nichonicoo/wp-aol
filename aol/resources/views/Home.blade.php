@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -109,4 +109,10 @@
         </div>
     @endif
 </body>
-</html>
+</html> --}}
+
+@extends('layouts.navigation')
+
+@section('content')
+    Hello
+@endsection

@@ -63,6 +63,7 @@
                     @else
                         <!-- If not logged in, show login link -->
                         <a href="{{ route('login') }}" class="text-white font-semibold">Login</a>
+                        <a href="{{ route('register')}}" class="text-white font-semibold">Register</a>
                     @endif
                 </div>
 
@@ -105,5 +106,7 @@
             </div>
         @endif
     </div>
+
+    @yield('content')
 </body>
 </html>
