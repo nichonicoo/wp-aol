@@ -35,7 +35,7 @@
                             <a href="{{ route('Ourteam.index') }}">Our Team</a>
                         </li>
                         <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                            <a href="{{ route('products.create') }}">All Reports</a>
+                            <a href="{{ route('allreports.index') }}">All Reports</a>
                         </li>
                     </ul>
                 </div>
@@ -70,9 +70,15 @@
                             </div>
                         </div>
                     @else
-                        <!-- If not logged in, show login link -->
-                        <a href="{{ route('login') }}" class="text-white font-semibold">Login</a>
-                        <a href="{{ route('register')}}" class="text-white font-semibold">Register</a>
+                        <!-- Jika tidak login, tampilkan tombol Login dan Register -->
+                    <div class="flex space-x-4">
+                        <a href="{{ route('login') }}" class="px-6 py-2 bg-blue-600 text-white font-semibold rounded-md shadow-md transition-transform duration-200 hover:bg-blue-700 hover:scale-105">
+                            Login
+                        </a>
+                        <a href="{{ route('register') }}" class="px-6 py-2 bg-green-600 text-white font-semibold rounded-md shadow-md transition-transform duration-200 hover:bg-green-700 hover:scale-105">
+                            Register
+                        </a>
+                    </div>
                     @endif
                 </div>
 

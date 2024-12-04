@@ -33,7 +33,16 @@ use Illuminate\Support\Facades\Auth;
     return view('Home', compact('datas'));
     }
 
+    public function allreports()
+    {
+    // $datas = Datas::all();  // Fetch all products from the database
+    // return view('layouts.navigation', compact('datas'));
 
+    $datas2 = datas::all();
+
+    // Pass the data to the view
+    return view('AllReports', compact('datas2'));
+    }
 
     /**
      * Show the form for creating a new resource.

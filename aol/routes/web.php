@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 // Public Routes
 Route::get('/', [DatasController::class, 'index_pubs'])->name('home.index');  // Route untuk menampilkan produk
-
+Route::get('/AllReports', [DatasController::class, 'allreports'])->name('allreports.index');
 // Dashboard (Requires Authentication)
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
