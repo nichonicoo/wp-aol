@@ -55,6 +55,7 @@ use Illuminate\Support\Facades\Auth;
      */
     public function store(Request $request)
 {
+    // dd($request);
     // Check if the user is authenticated
     if (!Auth::check()) {
         return redirect()->route('login'); // Redirect to login if the user is not authenticated
@@ -65,7 +66,7 @@ use Illuminate\Support\Facades\Auth;
         'Title' => 'required',
         'Description' => 'required',
         'Location' => 'required',
-        'Tingkat-Kesulitan' => 'required',
+        'Tingkat_Kesulitan' => 'required',
         'Status' => 'required',  // Validate the Status field
         'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Image validation
     ]);
@@ -84,21 +85,20 @@ use Illuminate\Support\Facades\Auth;
     // Store the product data in the database
     // Datas::create($data);
 
-    datas::create([
+    Datas::create([
         'Title' => $request->Title,
         'Description' => $request->Description,
         'Location' => $request->Location,
-        'Tingkat-Kesulitan' => $data['Tingkat-Kesulitan'],
-        'users_id' => auth()->id(),
+        'Tingkat_Kesulitan' => $data['Tingkat_Kesulitan'],
+        'users_id' => Auth()->id(),
         'Status' => $request->Status,
         'photo_url' => $data['photo_url']
     ]);
 
     // Redirect to the navigation page after successful submission
-    return redirect()->route('navigation');
+    return redirect()->route('dashboard');
+
 }
-
-
 
     /**
      * Display the specified resource.

@@ -56,7 +56,7 @@
                 <!-- Difficulty Select -->
                 <div class="mb-4">
                     <label for="Tingkat-Kesulitan" class="block text-sm font-medium text-gray-700">Tingkat Kesulitan</label>
-                    <select name="Tingkats" id="Tingkat-Kesulitan"
+                    <select name="Tingkat_Kesulitan" id="Tingkat_Kesulitan"
                         class="mt-1 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
                         @foreach($tingkats as $tingkat)
                             <option value="{{ $tingkat }}">{{ $tingkat }}</option>

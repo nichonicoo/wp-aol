@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('Location', 120);
             $table->string('Tingkat_Kesulitan', 120);
             $table->string('Status', 120);
-            $table->foreignId('users_id')->nullable()->constrained(); // Make it nullable
+            $table->foreignId('users_id')->nullable(); // Make it nullable
             $table->timestamps();
         });
     }

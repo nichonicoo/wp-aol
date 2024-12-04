@@ -11,7 +11,7 @@ class datas extends Model
         'Title',
         'Description',
         'Location',
-        'Tingkat-Kesulitan',
+        'Tingkat_Kesulitan',
         'Status',
         'users_id'
     ];
