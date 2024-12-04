@@ -27,7 +27,7 @@ use Illuminate\Support\Facades\Auth;
     // $datas = Datas::all();  // Fetch all products from the database
     // return view('layouts.navigation', compact('datas'));
 
-    $datas = datas::all();
+    $datas = datas::paginate(3);
 
     // Pass the data to the view
     return view('Home', compact('datas'));

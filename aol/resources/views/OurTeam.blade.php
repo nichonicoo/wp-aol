@@ -1,4 +1,4 @@
-@extends('Home')
+@extends('layouts.navigation')
 @section('content')
 <div class="bg-gray-100 h-screen">
     <div class="py-10 max-w-screen-lg mx-auto">

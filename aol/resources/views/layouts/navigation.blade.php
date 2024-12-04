@@ -32,6 +32,9 @@
                             <a href="{{ route('products.create') }}">About Us</a>
                         </li>
                         <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
+                            <a href="{{ route('Ourteam.index') }}">Our Team</a>
+                        </li>
+                        <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
                             <a href="{{ route('products.create') }}">All Reports</a>
                         </li>
                     </ul>

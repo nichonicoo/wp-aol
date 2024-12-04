@@ -28,7 +28,7 @@ Route::middleware('auth')->group(function () {
 // Other Pages (Public)
 Route::get('/OurTeam', function () {
     return view('OurTeam');
-});
+})->name('Ourteam.index');
 
 Route::get('/contact', function () {
     return view('Contact');
