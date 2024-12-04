@@ -55,10 +55,6 @@ use Illuminate\Support\Facades\Auth;
      */
     public function store(Request $request)
 {
-<<<<<<< HEAD
-=======
-
->>>>>>> c2ad08c09b66ef74e9db96ce30dbd4b32fa7144a
     // Check if the user is authenticated
     if (!Auth::check()) {
         return redirect()->route('login'); // Redirect to login if the user is not authenticated
@@ -83,11 +79,7 @@ use Illuminate\Support\Facades\Auth;
     $data['users_id'] = Auth::id();
 
     // Set the authenticated user's ID for the 'users_id' column
-<<<<<<< HEAD
     $data['users_id'] = Auth::id();  // Ensure the user is authenticated
-=======
-    // $data['users_id'] = Auth::id();  // Ensure the user is authenticated
->>>>>>> c2ad08c09b66ef74e9db96ce30dbd4b32fa7144a
 
     // Store the product data in the database
     // Datas::create($data);
