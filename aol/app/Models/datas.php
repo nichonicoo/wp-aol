@@ -11,9 +11,9 @@ class datas extends Model
         'Title',
         'Description',
         'Location',
-        'Tingkat-Kesulitan',
+        'Tingkat_Kesulitan',
         'Status',
-        'clients_id'
+        'users_id'
     ];
 
 }

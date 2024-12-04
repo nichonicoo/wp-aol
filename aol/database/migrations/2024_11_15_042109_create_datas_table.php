@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('Title', 120);
             $table->string('Description', 120);
             $table->string('Location', 120);
-            $table->string('Tingkat-Kesulitan', 120);
+            $table->string('Tingkat_Kesulitan', 120);
             $table->string('Status', 120);
-            $table->foreignId('users_id');
+            $table->foreignId('users_id')->nullable(); // Make it nullable
             $table->timestamps();
         });
     }
