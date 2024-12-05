@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DatasController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,3 +37,5 @@ Route::get('/contact', function () {
 
 // Authentication Routes (Login, Register, etc.)
 require __DIR__.'/auth.php';
+
+Route::get('admin/dashboard', [HomeController::class,'index'])->middleware(['auth', 'admin']);
