@@ -76,7 +76,8 @@ use Illuminate\Support\Facades\Auth;
         'Description' => 'required',
         'Location' => 'required',
         'Tingkat_Kesulitan' => 'required',
-        'Status' => 'required',  // Validate the Status field
+        'Status' => 'required',
+        'Tanggal_Pembuatan' => 'required',  // Validate the Status field
         'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Image validation
     ]);
 
@@ -101,6 +102,7 @@ use Illuminate\Support\Facades\Auth;
         'Tingkat_Kesulitan' => $data['Tingkat_Kesulitan'],
         'users_id' => Auth()->id(),
         'Status' => $request->Status,
+        'Tanggal_Pembuatan' => $request->Tanggal_Pembuatan,
         'photo_url' => $data['photo_url']
     ]);
 

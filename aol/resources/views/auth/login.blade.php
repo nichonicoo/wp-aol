@@ -20,14 +20,14 @@
                 <x-input-error :messages="$errors->get('password')" class="mt-2 text-red-500" />
 
                 <!-- Show Password Checkbox -->
-                <div class="mt-2 flex items-center">
-                    <input type="checkbox" id="show-password" class="mr-2">
-                    <label for="show-password" class="text-sm text-gray-600">{{ __('Show Password') }}</label>
-                </div>
+                <label for="show-password" class="inline-flex items-center mt-2 text-sm text-gray-600">
+                    <input id="show-password" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500">
+                    <span class="ms-2">{{ __('Show Password') }}</span>
+                </label>
             </div>
 
             <!-- Remember Me -->
-            <div class="flex items-center mb-4">
+            <div class="flex items-center mb-2">
                 <label for="remember_me" class="inline-flex items-center text-sm text-gray-600">
                     <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
                     <span class="ms-2">{{ __('Remember me') }}</span>

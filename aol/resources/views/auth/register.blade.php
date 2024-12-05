@@ -2,7 +2,7 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <div class="max-w-md mx-auto bg-white p-8 rounded-xl w-full shadow-xl">
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
@@ -36,7 +36,7 @@
 
             <!-- Show Password Checkbox -->
             <div class="mb-4 flex items-center">
-                <input type="checkbox" id="show-password" class="mr-2">
+                <input type="checkbox" id="show-password" class="mr-2 rounded-md border-2 border-gray-300 w-5 h-5 checked:bg-indigo-600 focus:outline-none">
                 <label for="show-password" class="text-sm text-gray-600">{{ __('Show Password') }}</label>
             </div>
 

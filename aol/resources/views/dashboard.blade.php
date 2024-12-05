@@ -1,28 +1,27 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+        <!-- Heading for Your Data -->
+        <h2 class="text-2xl font-semibold text-gray-800 mt-16 mb-8 text-center">
+            Your Data
         </h2>
-    </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
-                <h3 class="text-2xl font-semibold mb-4">Your Data</h3>
-                @foreach ($datas as $data)
-                    <div class="mb-4">
-                        <p><strong>Title:</strong> {{ $data->Title }}</p>
-                        <p><strong>Description:</strong> {{ $data->Description }}</p>
-                        <p><strong>Location:</strong> {{ $data->Location }}</p>
-                        <p><strong>Tingkat Kesulitan:</strong> {{ $data->Tingkat_Kesulitan }}</p>
-                        <p><strong>Status:</strong> {{ $data->Status }}</p>
-                        <p><strong>Photo URL:</strong> <a href="{{ asset('storage/' . $data->photo_url) }}" target="_blank">{{ $data->photo_url }}</a></p>
+        <ul class="grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 justify-center mx-auto">
+            @foreach ($datas as $data)
+                <li class="w-full mx-auto group sm:max-w-sm bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                    <img src="{{ asset('storage/' . $data->photo_url) }}" loading="lazy" alt="{{ $data->Title }}" class="w-full h-48 object-cover" />
+                    <div class="p-4 space-y-3">
+                        <span class="block text-indigo-500 text-xs font-medium uppercase">
+                            {{ \Carbon\Carbon::parse($data->created_at)->format('M d, Y') }}
+                        </span>
+                        <h3 class="text-lg text-gray-800 font-bold duration-150 group-hover:text-indigo-600">
+                            {{ $data->Title }}
+                        </h3>
+                        <p class="text-gray-600 text-sm duration-150 group-hover:text-gray-800">
+                            {{ $data->Description }}
+                        </p>
                     </div>
-                    <hr>
-                @endforeach
-            </div>
-        </div>
+                </li>
+            @endforeach
+        </ul>
     </div>
-
-
 </x-app-layout>

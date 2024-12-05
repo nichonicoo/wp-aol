@@ -12,10 +12,14 @@
     <div class="top-0 py-1 lg:py-2 w-full bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-800 lg:relative z-50">
         <nav class="z-10 sticky top-0 left-0 right-0 max-w-4xl xl:max-w-5xl mx-auto px-5 py-2.5 lg:border-none lg:py-4">
             <div class="flex items-center justify-between">
-                <!-- Logo -->
+
                 <button>
                     <div class="flex items-center space-x-2">
-                        <h2 class="text-white font-bold text-2xl">Jomokers</h2>
+                        <!-- Logo with increased size -->
+                        <img src="{{ asset('img/images.png') }}" alt="Logo" class="h-12"> <!-- Adjust the height as needed -->
+
+                        <!-- Text next to the logo -->
+                        <span class="text-white text-lg font-semibold">Sandawara Group</span>
                     </div>
                 </button>
 
