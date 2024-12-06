@@ -111,6 +111,19 @@ use Illuminate\Support\Facades\Auth;
 
 }
 
+    public function aboutUs(){
+
+        return view('AboutUs');
+    }
+
+    public function admin_Dash(){
+
+    $datas2 = datas::all();
+
+    // Pass the data to the view
+    return view('admin.dashboard', compact('datas2'));
+    }
+
     /**
      * Display the specified resource.
      */

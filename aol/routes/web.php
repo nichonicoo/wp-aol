@@ -34,5 +34,7 @@ Route::get('/contact', function () {
     return view('Contact');
 })->name('contact');
 
+Route::get('/aboutus', [DatasController::class, 'aboutUs'])->name('aboutUs');
+
 // Authentication Routes (Login, Register, etc.)
 require __DIR__.'/auth.php';
