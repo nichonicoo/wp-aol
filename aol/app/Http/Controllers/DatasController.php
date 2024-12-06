@@ -77,7 +77,7 @@ use Illuminate\Support\Facades\Auth;
         'Location' => 'required',
         'Tingkat_Kesulitan' => 'required',
         'Status' => 'required',
-        'Tanggal_Pembuatan' => 'required',  // Validate the Status field
+        // 'Tanggal_Pembuatan' => 'required',  // Validate the Status field
         'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Image validation
     ]);
 
@@ -95,6 +95,8 @@ use Illuminate\Support\Facades\Auth;
     // Store the product data in the database
     // Datas::create($data);
 
+    $data['Tanggal_Pembuatan'] = now()->toDateString();
+
     Datas::create([
         'Title' => $request->Title,
         'Description' => $request->Description,
@@ -102,7 +104,7 @@ use Illuminate\Support\Facades\Auth;
         'Tingkat_Kesulitan' => $data['Tingkat_Kesulitan'],
         'users_id' => Auth()->id(),
         'Status' => $request->Status,
-        'Tanggal_Pembuatan' => $request->Tanggal_Pembuatan,
+        'Tanggal_Pembuatan' => $data['Tanggal_Pembuatan'],
         'photo_url' => $data['photo_url']
     ]);
 

@@ -17,6 +17,9 @@
                         <p class="text-gray-600 text-sm duration-150 group-hover:text-gray-800">
                             {{ $data->Description }}
                         </p>
+                        <p class="text-gray-600 text-sm duration-150 group-hover:text-gray-800">
+                            {{ $data->Tingkat_Kesulitan }}
+                        </p>
                     </div>
                 </li>
             @endforeach
