@@ -65,6 +65,10 @@
                                 <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md z-50">
                                     <div class="py-1">
                                         <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-gray-800 hover:bg-blue-100">Profile</a>
+                                        @if (Auth::user()->role == 'admin')
+                                            <a href="{{ route('admin.dashboard') }}" class="block px-4 py-2 text-sm text-gray-800 hover:bg-blue-100">Admin dashboard</a>
+
+                                        @endif
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf
                                             <button type="submit" class="block w-full text-left px-4 py-2 text-sm text-gray-800 hover:bg-blue-100">Logout</button>

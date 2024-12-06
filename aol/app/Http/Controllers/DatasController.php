@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\datas;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
  class DatasController extends Controller
 {
@@ -105,7 +107,7 @@ use Illuminate\Support\Facades\Auth;
         'users_id' => Auth()->id(),
         'Status' => $request->Status,
         'Tanggal_Pembuatan' => $data['Tanggal_Pembuatan'],
-        'photo_url' => $data['photo_url']
+        'image' => $data['photo_url']
     ]);
 
     // Redirect to the navigation page after successful submission
@@ -124,6 +126,62 @@ use Illuminate\Support\Facades\Auth;
 
     // Pass the data to the view
     return view('admin.dashboard', compact('datas2'));
+    }
+
+    public function admin_edit($id){
+
+        $datas = datas::findOrFail($id);
+
+        $locations = ['Jakarta', 'Bali', 'Sumatra', 'Kalimantan', 'Papua', 'Surabaya', 'Aceh'];
+        $tingkats = ['Sangat Susah', 'Susah', 'Normal', 'Gampang'];
+        $stats = ['Sudah Selesai', 'Sedang Dikerjakan', 'Sedang Di Diskusikan', 'Belum Dikerjakan'];
+
+        return view('admin.edit', compact('datas', 'locations', 'tingkats', 'stats'));
+    }
+
+    public function admin_Update(Request $request, $id){
+    $data = Datas::findOrFail($id);
+
+    $request->validate([
+        'Title' => 'required',
+        'Description' => 'required',
+        'Location' => 'required',
+        'Tingkat_Kesulitan' => 'required',
+        'Status' => 'required',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Image validation
+    ]);
+
+    if ($request->hasFile('image')) {
+
+        if ($data->photo_url && Storage::disk('public')->exists($data->photo_url)) {
+            Storage::disk('public')->delete($data->photo_url);
+        }
+
+        // Store the new image
+        $imagePath = $request->file('image')->store('images', 'public');
+        $data->photo_url = $imagePath; // Update the path to the image in the 'photo_url' column
+    }
+
+    $data->Title = $request->Title;
+    $data->Description = $request->Description;
+    $data->Location = $request->Location;
+    $data->Tingkat_Kesulitan = $request->Tingkat_Kesulitan;
+    $data->Status = $request->Status;
+    $data->save();
+
+    return redirect()->route('admin.dashboard')->with('success', 'Data updated successfully.');
+    }
+
+    public function admin_Delete_Report($id): RedirectResponse
+    {
+        $data  = Datas::findOrFail($id);
+
+       if ($data->photo_url && Storage::disk('public')->exists($data->photo_url)) {
+        Storage::disk('public')->delete($data->photo_url);
+    }
+        $data->delete();
+
+        return redirect()->route('admin.dashboard')->with('success', 'Data deleted successfully.');
     }
 
     /**

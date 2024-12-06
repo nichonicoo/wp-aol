@@ -67,19 +67,33 @@
 
                 @if ($data->Tingkat_Kesulitan == 'Sangat Susah')
                 <td class="px-6 py-4 font-semibold text-red-900 dark:text-red-500">
-                    {{$data->Tingkat_Kesulitan}}
+                    <span class="flex items-center text-sm font-medium text-gray-900 dark:text-white me-3">
+                        <span class="flex w-2.5 h-2.5 bg-red-500 rounded-full me-1.5 flex-shrink-0">
+                    </span>
+                        {{$data->Tingkat_Kesulitan}}
+                    </span>
                 </td>
                 @elseif ($data->Tingkat_Kesulitan == 'Susah')
-                    <td class="px-6 py-4 font-semibold text-red-900 dark:text-red-500">
-                        {{$data->Tingkat_Kesulitan}}
+                        <span class="flex items-center text-sm font-medium text-gray-900 dark:text-white me-3">
+                            <span class="flex w-2.5 h-2.5 bg-red-500 rounded-full me-1.5 flex-shrink-0">
+                        </span>
+                            {{$data->Tingkat_Kesulitan}}
+                        </span>
                     </td>
                 @elseif ($data->Tingkat_Kesulitan == 'Normal')
-                    <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                        {{$data->Tingkat_Kesulitan}}
+                        <span class="flex items-center text-sm font-medium text-gray-900 dark:text-white me-3">
+                            <span class="flex w-2.5 h-2.5 bg-gray-500 rounded-full me-1.5 flex-shrink-0">
+                        </span>
+                            {{$data->Tingkat_Kesulitan}}
+                        </span>
                     </td>
                 @elseif ($data->Tingkat_Kesulitan == 'Gampang')
                     <td class="px-6 py-4 font-semibold text-green-900 dark:text-blue-500">
-                        {{$data->Tingkat_Kesulitan}}
+                        <span class="flex items-center text-sm font-medium text-gray-900 dark:text-white me-3">
+                            <span class="flex w-2.5 h-2.5 bg-green-500 rounded-full me-1.5 flex-shrink-0">
+                        </span>
+                            {{$data->Tingkat_Kesulitan}}
+                        </span>
                     </td>
                 @endif
 
@@ -109,8 +123,15 @@
                 </td>
 
                 <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                    <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</a>
+                    <a href="{{ route('admin.edit', ['id' => $data->id]) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+
+                    <form action="{{ route('admin.delete', ['id'=>$data->id]) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" href="" class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete </button>
+                    </form>
+
+                    <a href="#" class="font-medium text-green-600 dark:text-green-500 hover:underline">Details</a>
                 </td>
             </tr>
             @endforeach
