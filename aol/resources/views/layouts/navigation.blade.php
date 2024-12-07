@@ -65,6 +65,12 @@
                                 <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md z-50">
                                     <div class="py-1">
                                         <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-gray-800 hover:bg-blue-100">Profile</a>
+                                        @if (Auth::user()->role == 'user')
+                                            <a href="{{ route('dashboard') }}" class="block px-4 py-2 text-sm text-gray-800 hover:bg-blue-100">View
+                                                {{Auth()->user()->name}}'s Dashboard</a>
+                                            </a>
+
+                                        @endif
                                         @if (Auth::user()->role == 'admin')
                                             <a href="{{ route('admin.dashboard') }}" class="block px-4 py-2 text-sm text-gray-800 hover:bg-blue-100">Admin dashboard</a>
 

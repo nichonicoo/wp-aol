@@ -21,6 +21,11 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    // Edit
+    Route::get('/datas/{id}/edit', [DatasController::class, 'edit_datas'])->name('user_datas.edit');
+    Route::put('/datas/{id}', [DatasController::class, 'update_datas'])->name('user_datas.update');
+    Route::delete('/datas/{id}/delete', [DatasController::class, 'delete_datas'])->name('user_datas.delete');
+
     // Create Product
     Route::get('/create', [DatasController::class, 'create'])->name('products.create');
     Route::post('/store', [DatasController::class, 'store'])->name('products.store');

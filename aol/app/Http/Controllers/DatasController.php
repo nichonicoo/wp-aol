@@ -107,13 +107,72 @@ use Illuminate\Support\Facades\Storage;
         'users_id' => Auth()->id(),
         'Status' => $request->Status,
         'Tanggal_Pembuatan' => $data['Tanggal_Pembuatan'],
-        'image' => $data['photo_url']
+        'photo_url' => $data['photo_url']
     ]);
 
     // Redirect to the navigation page after successful submission
     return redirect()->route('dashboard');
 
 }
+
+    public function edit_datas($id){
+
+            $datas = datas::findOrFail($id);
+
+            $locations = ['Jakarta', 'Bali', 'Sumatra', 'Kalimantan', 'Papua', 'Surabaya', 'Aceh'];
+            $tingkats = ['Sangat Susah', 'Susah', 'Normal', 'Gampang'];
+            $stats = ['Sudah Selesai', 'Sedang Dikerjakan', 'Sedang Di Diskusikan', 'Belum Dikerjakan'];
+
+            return view('users.edit', compact('datas', 'locations', 'tingkats', 'stats'));
+    }
+
+    public function update_datas(Request $request, $id) {
+
+            $data = Datas::findOrFail($id);
+
+            $request->validate([
+                'Title' => 'required',
+                'Description' => 'required',
+                'Tingkat_Kesulitan' => 'required',
+                'Location' => 'required',
+                'Status' => 'required',
+                'photo_url' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Image validation
+            ]);
+
+            if ($request->hasFile('image')) {
+
+                if ($data->photo_url && Storage::disk('public')->exists($data->photo_url)) {
+                    Storage::disk('public')->delete($data->photo_url);
+                }
+
+                // Store the new image
+                $imagePath = $request->file('image')->store('images', 'public');
+                $data->photo_url = $imagePath; // Update the path to the image in the 'photo_url' column
+            }
+
+            $data->Title = $request->Title;
+            $data->Description = $request->Description;
+            $data->Location = $request->Location;
+            $data->Status = $request->Status;
+            $data->Tingkat_Kesulitan = $request->Tingkat_Kesulitan;
+            $data->photo_url = $data->photo_url;
+            $data->save();
+
+            return redirect()->route('dashboard')->with('success', 'Data updated successfully.');
+    }
+
+    public function delete_datas($id): RedirectResponse
+    {
+        $data  = Datas::findOrFail($id);
+
+        if ($data->photo_url && Storage::disk('public')->exists($data->photo_url)) {
+            Storage::disk('public')->delete($data->photo_url);
+        }
+
+        $data->delete();
+
+        return redirect()->route('dashboard')->with('success', 'Data deleted successfully.');
+    }
 
     public function aboutUs(){
 
@@ -148,7 +207,7 @@ use Illuminate\Support\Facades\Storage;
         'Location' => 'required',
         'Tingkat_Kesulitan' => 'required',
         'Status' => 'required',
-        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Image validation
+        'photo_url' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Image validation
     ]);
 
     if ($request->hasFile('image')) {
@@ -166,6 +225,7 @@ use Illuminate\Support\Facades\Storage;
     $data->Description = $request->Description;
     $data->Location = $request->Location;
     $data->Tingkat_Kesulitan = $request->Tingkat_Kesulitan;
+    $data->photo_url = $data->photo_url;
     $data->Status = $request->Status;
     $data->save();
 
