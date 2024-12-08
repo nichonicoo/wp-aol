@@ -244,6 +244,13 @@ use Illuminate\Support\Facades\Storage;
         return redirect()->route('admin.dashboard')->with('success', 'Data deleted successfully.');
     }
 
+    public function data_detail(datas $id)
+{
+    return view('details', ['id' => $id]);
+}
+
+
+
     /**
      * Display the specified resource.
      */

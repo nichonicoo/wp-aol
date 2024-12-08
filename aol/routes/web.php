@@ -29,6 +29,10 @@ Route::middleware('auth')->group(function () {
     // Create Product
     Route::get('/create', [DatasController::class, 'create'])->name('products.create');
     Route::post('/store', [DatasController::class, 'store'])->name('products.store');
+
+    //details
+    Route::get('/datas/{id}/details', [DatasController::class, 'data_detail'])->name('datas.details');
+
 });
 
 // Other Pages (Public)

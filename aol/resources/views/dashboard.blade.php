@@ -165,7 +165,10 @@
                         <button type="submit" href="" class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete </button>
                     </form>
 
-                    <a href="#" class="font-medium text-green-600 dark:text-green-500 hover:underline">Details</a>
+                    <a href="{{ route('datas.details', ['id' => $data->id]) }}"
+                        class="font-medium text-green-600 dark:text-green-500 hover:underline">
+                        Details
+                     </a>
                 </td>
             </tr>
             @endforeach
