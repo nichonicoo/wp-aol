@@ -6,7 +6,7 @@
         <ul class="grid gap-x-8 gap-y-12 mt-16 sm:grid-cols-2 lg:grid-cols-3 justify-center mx-auto">
             @foreach ($datas as $data)
                 <li class="w-full mx-auto group sm:max-w-sm bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
-                    <img src="{{ asset('storage/' . $data->photo_url) }}" loading="lazy" alt="{{ $data->Title }}" class="w-full h-48 object-cover" />
+                    <img src="{{ asset('storage/app/public' . $data->photo_url) }}" loading="lazy" alt="{{ $data->Title }}" class="w-full h-48 object-cover" />
                     <div class="p-4 space-y-3">
                         <span class="block text-indigo-500 text-xs font-medium uppercase">
                             {{ \Carbon\Carbon::parse($data->created_at)->format('M d, Y') }}
