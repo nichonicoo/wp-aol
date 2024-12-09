@@ -44,6 +44,7 @@
                     </ul>
                 </div>
 
+
                 <!-- User Profile and Logout (if logged in) -->
                 <div class="hidden lg:flex lg:items-center gap-x-2">
                     @if (Auth::check())
@@ -107,6 +108,10 @@
             </div>
         </nav>
     </div>
+
+
+
+
 
     <!-- Responsive Navigation Menu (Hamburger Menu) -->
     <div x-data="{ open: false }" :class="{'block': open, 'hidden': !open}" class="lg:hidden">

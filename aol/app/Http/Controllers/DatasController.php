@@ -10,9 +10,23 @@ use Illuminate\Support\Facades\Storage;
 
  class DatasController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
+    public function search(Request $request)
+    {
+        // Ambil query pencarian dari request
+        $query = $request->input('query');
+
+        // Ambil data berdasarkan query yang dicari, misalnya berdasarkan title
+        $datas = Datas::where('title', 'LIKE', "%{$query}%")
+                    ->orWhere('description', 'LIKE', "%{$query}%")
+                    ->paginate(9);  // Atur pagination sesuai kebutuhan Anda
+
+        // Kirim data ke view
+        return view('search-result', compact('datas', 'query'));
+    }
+
+
+
     public function index()
     {
     // $datas = Datas::all();  // Fetch all products from the database

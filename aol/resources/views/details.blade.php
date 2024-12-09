@@ -40,11 +40,22 @@
     </div>
 
     <!-- Back Button -->
-    <div class="text-center mt-4">
+   <!-- Back Button -->
+<div class="text-center mt-4">
+    @if (Auth::check())
+        <!-- Jika sudah login -->
         <a href="{{ route('dashboard') }}"
            class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded transition duration-300">
             Back to Dashboard
         </a>
-    </div>
+    @else
+        <!-- Jika belum login -->
+        <a href="{{ route('home.index') }}"
+           class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded transition duration-300">
+            Back to Homepage
+        </a>
+    @endif
+</div>
+
 </div>
 @endsection

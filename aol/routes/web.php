@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 // Public Routes
+
+Route::get('/search', [DatasController::class, 'search'])->name('datas.search');
+
+
 Route::get('/', [DatasController::class, 'index_pubs'])->name('home.index');  // Route untuk menampilkan produk
 Route::get('/AllReports', [DatasController::class, 'allreports'])->name('allreports.index');
 // Dashboard (Requires Authentication)
@@ -34,6 +38,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/datas/{id}/details', [DatasController::class, 'data_detail'])->name('datas.details');
 
 });
+
+Route::get('/datas/{id}/details', [DatasController::class, 'data_detail'])->name('datas.details');
 
 // Other Pages (Public)
 Route::get('/OurTeam', function () {
