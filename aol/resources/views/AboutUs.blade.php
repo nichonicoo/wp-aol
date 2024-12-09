@@ -12,7 +12,7 @@
                 <div class="mt-8 flex">
                     <div class="w-3/4 text-justify">
                         <p>
-                            Oceanis adalah sebuah tim yang berdedikasi untuk melindungi dan melestarikan lautan kita demi
+                            Oceanis adala sebuah tim yang berdedikasi untuk melindungi dan melestarikan lautan kita demi
                             masa depan yang lebih baik. Dengan semakin meningkatnya polusi dan kerusakan lingkungan, kami
                             berkomitmen untuk meningkatkan kesadaran dan mengambil tindakan nyata untuk mengembalikan
                             keindahan serta kesehatan laut kita.

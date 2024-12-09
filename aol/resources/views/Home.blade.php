@@ -16,6 +16,7 @@
         <ul class="grid gap-x-8 gap-y-12 mt-16 sm:grid-cols-2 lg:grid-cols-3 justify-center mx-auto">
             @foreach ($datas as $data)
                 <li class="w-full mx-auto group sm:max-w-sm bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
+
                     <!-- Tambahkan Link -->
                     <a href="{{ route('datas.details', $data->id) }}" class="block">
                         <img src="{{ Storage::disk('s3')->url('/images/' . $data->photo_url) }}" loading="lazy" alt="{{ $data->Title }}" class="w-full h-48 object-cover" />
@@ -31,6 +32,7 @@
                             </p>
                         </div>
                     </a>
+
                 </li>
             @endforeach
         </ul>
