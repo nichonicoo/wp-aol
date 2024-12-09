@@ -1,4 +1,4 @@
-@extends('layouts.navigation')
+@extends('Home')
 @section('content')
     <div class="flex flex-col min-h-screen bg-gray-100">
         <!-- Main Content -->

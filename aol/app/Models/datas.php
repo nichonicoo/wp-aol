@@ -13,7 +13,6 @@ class datas extends Model
         'Location',
         'Tingkat_Kesulitan',
         'Status',
-        'Tanggal_Pembuatan',
         'users_id'
     ];
 
