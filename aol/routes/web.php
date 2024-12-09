@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DatasController;
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -61,7 +62,11 @@ Route::middleware(['auth', 'admin'])->group( function () {
     // Route::delete('admin/users/{user}', [UsersController::class,'destroy'])->name('admin.users.destroy');
 });
 
-Route::get('/generate', function(){
-    \Illuminate\Support\Facades\Artisan::call('storage:link');
-    echo 'ok';
- });
+// Route::get('/generate', function(){
+//     \Illuminate\Support\Facades\Artisan::call('storage:link');
+//     echo 'ok';
+//  });
+
+Route::get('/foo', function () {
+    Artisan::call('storage:link');
+    });
