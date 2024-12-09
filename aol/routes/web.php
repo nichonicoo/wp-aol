@@ -36,7 +36,6 @@ Route::middleware('auth')->group(function () {
 
     //details
     Route::get('/datas/{id}/details', [DatasController::class, 'data_detail'])->name('datas.details');
-
 });
 
 Route::get('/datas/{id}/details', [DatasController::class, 'data_detail'])->name('datas.details');
@@ -53,15 +52,15 @@ Route::get('/contact', function () {
 Route::get('/aboutus', [DatasController::class, 'aboutUs'])->name('aboutUs');
 
 // Authentication Routes (Login, Register, etc.)
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 //Route::get('admin/dashboard', [HomeController::class,'index'])->middleware(['auth', 'admin']);
 
-Route::middleware(['auth', 'admin'])->group( function () {
-    Route::get('admin/dashboard', [DatasController::class,'admin_Dash'])->name('admin.dashboard');
-    Route::get('admin/datas/{id}/edit', [DatasController::class,'admin_edit'])->name('admin.edit');
-    Route::put('admin/datas/{id}', [DatasController::class,'admin_Update'])->name('admin.update');
-    Route::delete('admin/datas/{id}/delete', [DatasController::class,'admin_Delete_Report'])->name('admin.delete');
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('admin/dashboard', [DatasController::class, 'admin_Dash'])->name('admin.dashboard');
+    Route::get('admin/datas/{id}/edit', [DatasController::class, 'admin_edit'])->name('admin.edit');
+    Route::put('admin/datas/{id}', [DatasController::class, 'admin_Update'])->name('admin.update');
+    Route::delete('admin/datas/{id}/delete', [DatasController::class, 'admin_Delete_Report'])->name('admin.delete');
     // Route::get('admin/users', [UsersController::class,'index'])->name('admin.users');
     // Route::get('admin/users/create', [UsersController::class,'create'])->name('admin.users.create');
     // Route::post('admin/users', [UsersController::class,'store'])->name('admin.users.store');

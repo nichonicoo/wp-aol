@@ -1,6 +1,8 @@
 @extends('layouts.navigation')
 
 @section('content')
+
+
 <form action="{{ route('datas.search') }}" method="GET" class="flex justify-end items-center space-x-2 mb-4 mr-2 mt-2">
     <input type="text" name="query" placeholder="Search by title"
         class="px-3 py-1 rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
