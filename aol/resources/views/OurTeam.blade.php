@@ -18,7 +18,7 @@
                 <div class="p-4">
                     <div class="text-md">
                         <a href="#" class="hover:text-indigo-500 text-gray-900 font-semibold transition duration-500 ease-in-out">Nicholas Terrence Salim Mohammadi</a>
-                        <p class="text-gray-500 uppercase text-sm">Web developer</p>
+                        <p class="text-gray-500 uppercase text-sm">CEO</p>
                     </div>
                     <div class="my-4 flex justify-center items-center">
                         <!-- Add Social Icons here -->
@@ -32,7 +32,7 @@
                 <div class="p-4">
                     <div class="text-md">
                         <a href="#" class="hover:text-indigo-500 text-gray-900 font-semibold transition duration-500 ease-in-out">Fabio Valentino William R. Makarim</a>
-                        <p class="text-gray-500 uppercase text-sm">President & CEO</p>
+                        <p class="text-gray-500 uppercase text-sm">CTO</p>
                     </div>
                     <div class="my-4 flex justify-center items-center">
                         <!-- Add Social Icons here -->
@@ -46,7 +46,7 @@
                 <div class="p-4">
                     <div class="text-md">
                         <a href="#" class="hover:text-indigo-500 text-gray-900 font-semibold transition duration-500 ease-in-out">Samuel Theophylus Wieguna</a>
-                        <p class="text-gray-500 uppercase text-sm">Role</p>
+                        <p class="text-gray-500 uppercase text-sm">COO</p>
                     </div>
                     <div class="my-4 flex justify-center items-center">
                         <!-- Add Social Icons here -->
@@ -63,7 +63,7 @@
                 <div class="p-4">
                     <div class="text-md">
                         <a href="#" class="hover:text-indigo-500 text-gray-900 font-semibold transition duration-500 ease-in-out">Jensen Ramadhaniel Putra Esene</a>
-                        <p class="text-gray-500 uppercase text-sm">Role</p>
+                        <p class="text-gray-500 uppercase text-sm">CFO</p>
                     </div>
                     <div class="my-4 flex justify-center items-center">
                         <!-- Add Social Icons here -->
