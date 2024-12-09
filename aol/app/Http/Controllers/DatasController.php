@@ -7,6 +7,9 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+use Yaza\LaravelGoogleDriveStorage\Gdrive;
+
 
  class DatasController extends Controller
 {
@@ -98,10 +101,51 @@ use Illuminate\Support\Facades\Storage;
     ]);
 
     // Handle image upload
-    if ($request->hasFile('image')) {
-        $imagePath = $request->file('image')->store('images', 'public');
-        $data['photo_url'] = $imagePath; // Store the path to the image in the 'photo_url' column
+    // if ($request->hasFile('image')) {
+    //     $imagePath = $request->file('image')->store('images', 'public');
+    //     $data['photo_url'] = $imagePath; // Store the path to the image in the 'photo_url' column
+    // }
+
+    // gdrive
+    // if ($request->hasFile('image')) {
+    //     $image = $request->file('image');
+    //     $filename = $image->getClientOriginalName();
+    //     $filepath = $image->getPathname();
+    //     $file = Storage::disk('google')->put($filename, File::get($filepath));
+    //     $fileId = json_decode($file);
+    //     $data['photo_url'] = $file; // Store the URL to the image in the 'photo_url' column
+    // }
+
+    // if ($request->hasFile('image')) {
+    //     $image = $request->file('image');
+    //     $filename = $image->getClientOriginalName();
+    //     $filePath = $image->storeAs('', $filename, 'google');
+
+    //     // Get the file ID
+    //     $file = Storage::disk('google')->getMetadata($filePath);
+    //     $fileId = $file['path'];
+    //     $data['photo_url'] = "https://drive.google.com/uc?id=$fileId"; // Store the URL to the image in the 'photo_url' column
+    // }
+
+    // if ($request->hasFile('image')) {
+    //     $image = $request->file('image');
+    //     $filename = $image->getClientOriginalName();
+    //     $filePath = $image->storeAs('', $filename, 'google');
+
+    //     // Get the file ID
+    //     $file = Storage::disk('google')->getMetadata($filePath);
+    //     $fileId = $file['path'];
+    //     $data['photo_url'] = "https://drive.google.com/uc?id=$fileId"; // Store the URL to the image in the 'photo_url' column
+    // }
+
+    if($request->hasFile('image')){
+        $image = $request->file('image');
+        $filename = $image->getClientOriginalName();
+        $image->storeAs('images', $filename, 's3');
+        $data['photo_url'] = $filename;
     }
+
+
 
     $data['users_id'] = Auth::id();
 
@@ -121,7 +165,7 @@ use Illuminate\Support\Facades\Storage;
         'users_id' => Auth()->id(),
         'Status' => $request->Status,
         'Tanggal_Pembuatan' => $data['Tanggal_Pembuatan'],
-        'photo_url' => $data['photo_url']
+        'photo_url' =>  $data['photo_url']
     ]);
 
     // Redirect to the navigation page after successful submission
@@ -155,13 +199,15 @@ use Illuminate\Support\Facades\Storage;
 
             if ($request->hasFile('image')) {
 
-                if ($data->photo_url && Storage::disk('public')->exists($data->photo_url)) {
-                    Storage::disk('public')->delete($data->photo_url);
+                if ($data->photo_url && Storage::disk('s3')->exists($data->photo_url)) {
+                    Storage::disk('s3')->delete($data->photo_url);
                 }
 
                 // Store the new image
-                $imagePath = $request->file('image')->store('images', 'public');
-                $data->photo_url = $imagePath; // Update the path to the image in the 'photo_url' column
+                $image = $request->file('image');
+                $filename = $image->getClientOriginalName();
+                $image->storeAs('images', $filename, 's3');
+                $data['photo_url'] = $filename;
             }
 
             $data->Title = $request->Title;
@@ -180,7 +226,8 @@ use Illuminate\Support\Facades\Storage;
         $data  = Datas::findOrFail($id);
 
         if ($data->photo_url && Storage::disk('public')->exists($data->photo_url)) {
-            Storage::disk('public')->delete($data->photo_url);
+            // Storage::disk('public')->delete($data->photo_url);
+            Storage::disk('s3')->delete($data->photo_url);
         }
 
         $data->delete();
@@ -226,13 +273,15 @@ use Illuminate\Support\Facades\Storage;
 
     if ($request->hasFile('image')) {
 
-        if ($data->photo_url && Storage::disk('public')->exists($data->photo_url)) {
-            Storage::disk('public')->delete($data->photo_url);
+        if ($data->photo_url && Storage::disk('s3')->exists($data->photo_url)) {
+            Storage::disk('s3')->delete($data->photo_url);
         }
 
         // Store the new image
-        $imagePath = $request->file('image')->store('images', 'public');
-        $data->photo_url = $imagePath; // Update the path to the image in the 'photo_url' column
+        $image = $request->file('image');
+        $filename = $image->getClientOriginalName();
+        $image->storeAs('images', $filename, 's3');
+        $data['photo_url'] = $filename;
     }
 
     $data->Title = $request->Title;
@@ -250,9 +299,10 @@ use Illuminate\Support\Facades\Storage;
     {
         $data  = Datas::findOrFail($id);
 
-       if ($data->photo_url && Storage::disk('public')->exists($data->photo_url)) {
-        Storage::disk('public')->delete($data->photo_url);
-    }
+        if ($data->photo_url && Storage::disk('public')->exists($data->photo_url)) {
+            // Storage::disk('public')->delete($data->photo_url);
+            Storage::disk('s3')->delete($data->photo_url);
+        }
         $data->delete();
 
         return redirect()->route('admin.dashboard')->with('success', 'Data deleted successfully.');
