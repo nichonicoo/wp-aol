@@ -1,5 +1,7 @@
 @extends('layouts.navigation')
+
 @section('content')
+
     <div class="flex flex-col min-h-screen bg-gray-100">
         <!-- Main Content -->
         <div class="flex-grow py-10 max-w-screen-lg mx-auto">
@@ -23,7 +25,7 @@
                         </p>
                     </div>
                     <div class="w-1/5 ml-20">
-                        <?xml version="1.0" encoding="utf-8"?>
+                        
                         <!-- Generator: Adobe Illustrator 25.2.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
                         <svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 128 128"
@@ -159,4 +161,5 @@
             <p>&copy; 2024 Your Company. All rights reserved.</p>
         </footer>
     </div>
+
 @endsection

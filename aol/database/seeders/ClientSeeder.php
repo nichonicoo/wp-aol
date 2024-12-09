@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class ClientSeeder extends Seeder
 {
@@ -34,7 +35,7 @@ class ClientSeeder extends Seeder
                 'last_name' => 'admins',
                 'username' => 'admin',
                 'birth_date' => fake()->dateTimeBetween('-20 years', '-5 years'),
-                'password'=> 'admin123'
+                'password'=> Hash::make('admin123')
             ]
             );
     }

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Create a Product</title>
+    <title>Oceanis</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.4/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
@@ -64,8 +64,10 @@
                     </select>
                 </div>
 
+                <input type="hidden" name="Status" value="Belum Dikerjakan">
+
                 <!-- Status Select -->
-                <div class="mb-4">
+                {{-- <div class="mb-4">
                     <label for="Status" class="block text-sm font-medium text-gray-700">Status</label>
                     <select name="Status" id="Status"
                         class="mt-1 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
@@ -73,8 +75,14 @@
                             <option value="{{ $status }}">{{ $status }}</option>
                         @endforeach
                     </select>
-                </div>
+                </div> --}}
 
+                {{-- <!-- Tanggal Pembuatan Input -->
+                <div class="mb-4">
+                    <label for="Tanggal_Pembuatan" class="block text-sm font-medium text-gray-700">Tanggal Pembuatan</label>
+                    <input type="date" name="Tanggal_Pembuatan" id="Tanggal_Pembuatan"
+                        class="mt-1 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                </div> --}}
 
                 <!-- Image Upload -->
                 <div class="mb-4">
@@ -104,4 +112,3 @@
 </body>
 
 </html>
-

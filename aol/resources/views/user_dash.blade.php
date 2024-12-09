@@ -1,35 +1,3 @@
-{{-- <x-app-layout>
-    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
-        <!-- Heading for Your Data -->
-        <h2 class="text-2xl font-semibold text-gray-800 mt-16 mb-8 text-center">
-            Welcome Back {{ auth()->user()->name }}!
-        </h2>
-
-        <h2 class="text-2xl font-semibold text-gray-800 mt-16 mb-8 text-left">
-            Your reports!
-        </h2>
-
-        <ul class="grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 justify-center mx-auto">
-            @foreach ($datas as $data)
-                <li class="w-full mx-auto group sm:max-w-sm bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
-                    <img src="{{ asset('storage/' . $data->photo_url) }}" loading="lazy" alt="{{ $data->Title }}" class="w-full h-48 object-cover" />
-                    <div class="p-4 space-y-3">
-                        <span class="block text-indigo-500 text-xs font-medium uppercase">
-                            {{ \Carbon\Carbon::parse($data->created_at)->format('M d, Y') }}
-                        </span>
-                        <h3 class="text-lg text-gray-800 font-bold duration-150 group-hover:text-indigo-600">
-                            {{ $data->Title }}
-                        </h3>
-                        <p class="text-gray-600 text-sm duration-150 group-hover:text-gray-800">
-                            {{ $data->Description }}
-                        </p>
-                    </div>
-                </li>
-            @endforeach
-        </ul>
-    </div>
-</x-app-layout> --}}
-
 @extends('layouts.navigation')
 
 @section('content')
@@ -41,11 +9,10 @@
 
                 <p>Welcome back, {{ auth()->user()->name }}!</p>
             </h2>
-            <h2 class="text-2xl font-semibold text-gray-800 mt-16 mb-8 text-left">
-                Your reports!
-            </h2>
+
 
         </div>
+
 
 
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -79,7 +46,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($datas as $data)
+            @foreach ($datas2 as $data)
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
 
 
@@ -107,7 +74,6 @@
                     </span>
                 </td>
                 @elseif ($data->Tingkat_Kesulitan == 'Susah')
-                <td class="px-6 py-4 font-semibold text-red-900 dark:text-red-500">
                         <span class="flex items-center text-sm font-medium text-gray-900 dark:text-white me-3">
                             <span class="flex w-2.5 h-2.5 bg-red-500 rounded-full me-1.5 flex-shrink-0">
                         </span>
@@ -157,18 +123,15 @@
                 </td>
 
                 <td class="px-6 py-4">
-                    <a href="{{ route('user_datas.edit', ['id' => $data->id]) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    <a href="{{ route('admin.edit', ['id' => $data->id]) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
 
-                    <form action="{{ route('user_datas.delete', ['id'=>$data->id]) }}" method="post">
+                    <form action="{{ route('admin.delete', ['id'=>$data->id]) }}" method="post">
                         @csrf
                         @method('DELETE')
                         <button type="submit" href="" class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete </button>
                     </form>
 
-                    <a href="{{ route('datas.details', ['id' => $data->id]) }}"
-                        class="font-medium text-green-600 dark:text-green-500 hover:underline">
-                        Details
-                     </a>
+                    <a href="#" class="font-medium text-green-600 dark:text-green-500 hover:underline">Details</a>
                 </td>
             </tr>
             @endforeach
@@ -180,4 +143,3 @@
 
 
 @endsection
-

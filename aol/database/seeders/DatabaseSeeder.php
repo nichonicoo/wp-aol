@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use GuzzleHttp\Client;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -18,6 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             // ClientSeeder::class,
             UserSeeder::class,
+            ClientSeeder::class,
             DataSeeder::class
         ]);
     }
