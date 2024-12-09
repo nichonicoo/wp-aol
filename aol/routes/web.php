@@ -60,3 +60,8 @@ Route::middleware(['auth', 'admin'])->group( function () {
     // Route::put('admin/users/{user}', [UsersController::class,'update'])->name('admin.users.update');
     // Route::delete('admin/users/{user}', [UsersController::class,'destroy'])->name('admin.users.destroy');
 });
+
+Route::get('/generate', function(){
+    \Illuminate\Support\Facades\Artisan::call('storage:link');
+    echo 'ok';
+ });
