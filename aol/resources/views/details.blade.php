@@ -16,7 +16,7 @@
             <!-- Image Section -->
             @if ($id->photo_url)
                 <div class="col-md-4">
-                    <img src="{{ Storage::disk('s3')->url('/images/' . $id->photo_url) }}"
+                    <img src="{{ asset('storage/' . $id->photo_url) }}"
                          class="img-fluid"
                          alt="Data Image"
                          style="height: 100%; object-fit: cover;">
