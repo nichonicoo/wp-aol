@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Laravel</title>
+    <title>Oceanis</title>
     @vite('resources/css/app.css')
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script> <!-- Adding Alpine.js for dropdown functionality -->
 </head>
@@ -19,7 +19,7 @@
                         <img src="{{ asset('img/images.png') }}" alt="Logo" class="h-12"> <!-- Adjust the height as needed -->
 
                         <!-- Text next to the logo -->
-                        <span class="text-white text-lg font-semibold">Sandawara Group</span>
+                        <span class="text-white text-lg font-semibold">Oceanis</span>
                     </div>
                 </button>
 
