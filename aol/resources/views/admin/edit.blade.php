@@ -56,7 +56,7 @@
             <label for="image" class="block text-sm font-medium text-gray-700">Upload Image</label>
             <input type="file" name="image" id="image" class="mt-1 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
             @if ($datas->photo_url)
-                <img src="{{ asset('storage/' . $datas->photo_url) }}" class="mt-4 w-32 h-32">
+                <img src="{{ Storage::disk('s3')->url('/images/' . $data->photo_url) }}"" class="mt-4 w-32 h-32">
             @endif
         </div>
 

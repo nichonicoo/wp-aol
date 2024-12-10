@@ -51,7 +51,7 @@
 
 
                 <td class="p-4">
-                    <img src="{{ asset('storage/' . $data->photo_url) }}"" class="w-30 h-40 max-w-full max-h-full " alt="Apple Watch">
+                    <img src="{{ Storage::disk('s3')->url('images/' . $data->photo_url) }}" class="w-30 h-40 max-w-full max-h-full " alt="Apple Watch">
                 </td>
                 <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
                     {{ $data->Title }}
@@ -74,6 +74,7 @@
                     </span>
                 </td>
                 @elseif ($data->Tingkat_Kesulitan == 'Susah')
+                <td class="px-6 py-4 font-semibold text-red-900 dark:text-red-500">
                         <span class="flex items-center text-sm font-medium text-gray-900 dark:text-white me-3">
                             <span class="flex w-2.5 h-2.5 bg-red-500 rounded-full me-1.5 flex-shrink-0">
                         </span>
@@ -81,6 +82,7 @@
                         </span>
                     </td>
                 @elseif ($data->Tingkat_Kesulitan == 'Normal')
+                <td class="px-6 py-4 font-semibold text-red-900 dark:text-red-500">
                         <span class="flex items-center text-sm font-medium text-gray-900 dark:text-white me-3">
                             <span class="flex w-2.5 h-2.5 bg-gray-500 rounded-full me-1.5 flex-shrink-0">
                         </span>

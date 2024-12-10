@@ -25,7 +25,7 @@
                         </p>
                     </div>
                     <div class="w-1/5 ml-20">
-                        
+
                         <!-- Generator: Adobe Illustrator 25.2.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
                         <svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 128 128"
@@ -75,7 +75,7 @@
                             <a href="#"
                                 class="hover:text-indigo-500 text-gray-900 font-semibold transition duration-500 ease-in-out">Nicholas
                                 Terrence Salim</a>
-                            <p class="text-gray-500 uppercase text-sm">Web developer</p>
+                            <p class="text-gray-500 uppercase text-sm">CEO</p>
                         </div>
                         <div class="my-4 flex justify-center items-center">
                             <!-- Add Social Icons here -->
@@ -92,7 +92,7 @@
                             <a href="#"
                                 class="hover:text-indigo-500 text-gray-900 font-semibold transition duration-500 ease-in-out">Fabio
                                 Valentino William</a>
-                            <p class="text-gray-500 uppercase text-sm">President & CEO</p>
+                            <p class="text-gray-500 uppercase text-sm">CTO</p>
                         </div>
                         <div class="my-4 flex justify-center items-center">
                             <!-- Add Social Icons here -->
@@ -109,7 +109,7 @@
                             <a href="#"
                                 class="hover:text-indigo-500 text-gray-900 font-semibold transition duration-500 ease-in-out">Samuel
                                 Theophylus Wieguna</a>
-                            <p class="text-gray-500 uppercase text-sm">Role</p>
+                            <p class="text-gray-500 uppercase text-sm">CFO</p>
                         </div>
                         <div class="my-4 flex justify-center items-center">
                             <!-- Add Social Icons here -->
@@ -129,7 +129,7 @@
                             <a href="#"
                                 class="hover:text-indigo-500 text-gray-900 font-semibold transition duration-500 ease-in-out">Jensen
                                 Ramadhaniel Putra Esene</a>
-                            <p class="text-gray-500 uppercase text-sm">Yang Terhormat</p>
+                            <p class="text-gray-500 uppercase text-sm">COO</p>
                         </div>
                         <div class="my-4 flex justify-center items-center">
                             <!-- Add Social Icons here -->
@@ -146,7 +146,7 @@
                             <a href="#"
                                 class="hover:text-indigo-500 text-gray-900 font-semibold transition duration-500 ease-in-out">Dave
                                 Daniel Christian</a>
-                            <p class="text-gray-500 uppercase text-sm">Role</p>
+                            <p class="text-gray-500 uppercase text-sm">CMO</p>
                         </div>
                         <div class="my-4 flex justify-center items-center">
                             <!-- Add Social Icons here -->
@@ -155,11 +155,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Footer -->
-        <footer class="bg-gray-800 text-white text-center py-4 mt-10">
-            <p>&copy; 2024 Your Company. All rights reserved.</p>
-        </footer>
     </div>
 
 @endsection

@@ -141,7 +141,7 @@ use Yaza\LaravelGoogleDriveStorage\Gdrive;
     if($request->hasFile('image')){
         $image = $request->file('image');
         $filename = $image->getClientOriginalName();
-        $image->storeAs('images', $filename, 's3');
+        $image->storeAs('images/', $filename, 's3');
         $data['photo_url'] = $filename;
     }
 
@@ -206,7 +206,7 @@ use Yaza\LaravelGoogleDriveStorage\Gdrive;
                 // Store the new image
                 $image = $request->file('image');
                 $filename = $image->getClientOriginalName();
-                $image->storeAs('images', $filename, 's3');
+                $image->storeAs('images/', $filename, 's3');
                 $data['photo_url'] = $filename;
             }
 

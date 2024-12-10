@@ -17,7 +17,7 @@
         <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
 
             <!-- Form Heading -->
-            <h1 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Create a Product</h1>
+            <h1 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Create a Report</h1>
 
             <!-- Form Start -->
             <form action="{{ route('products.store') }}" method="post" enctype="multipart/form-data">
@@ -30,14 +30,14 @@
 
                 <!-- Title Input -->
                 <div class="mb-4">
-                    <label for="Title" class="block text-sm font-medium text-gray-700">Title</label>
+                    <label for="Title" class="block text-sm font-medium text-gray-700">Report Title</label>
                     <input type="text" name="Title" id="Title" placeholder="Enter the product title"
                         class="mt-1 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
                 </div>
 
                 <!-- Description Input -->
                 <div class="mb-4">
-                    <label for="Description" class="block text-sm font-medium text-gray-700">Description</label>
+                    <label for="Description" class="block text-sm font-medium text-gray-700">Report Description</label>
                     <input type="text" name="Description" id="Description" placeholder="Enter product description"
                         class="mt-1 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
                 </div>
@@ -86,7 +86,7 @@
 
                 <!-- Image Upload -->
                 <div class="mb-4">
-                    <label for="image" class="block text-sm font-medium text-gray-700">Product Image</label>
+                    <label for="image" class="block text-sm font-medium text-gray-700">Report Image</label>
                     <input type="file" name="image" id="image"
                         class="mt-1 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
                 </div>
