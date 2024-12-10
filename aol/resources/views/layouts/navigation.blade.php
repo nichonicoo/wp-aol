@@ -11,14 +11,14 @@
 
 <body>
     <!-- Navbar -->
-    <div class="top-0 py-1 lg:py-2 w-full bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-800 lg:relative z-50">
+    <div class="top-0 py-1 lg:py-2 w-full bg-gradient-to-r from-indigo-800 via-blue-500 to-cyan-300 lg:relative z-50">
         <nav class="z-10 sticky top-0 left-0 right-0 max-w-4xl xl:max-w-5xl mx-auto px-5 py-2.5 lg:border-none lg:py-4">
             <div class="flex items-center justify-between">
 
                 <button>
                     <div class="flex items-center space-x-2">
                         <!-- Logo with increased size -->
-                        <img src="{{ asset('img/images.png') }}" alt="Logo" class="h-12">
+                        <img src="{{ asset('img/image.png') }}" alt="Logo" class="h-12">
                         <!-- Adjust the height as needed -->
 
                         <!-- Text next to the logo -->
@@ -129,10 +129,6 @@
         </nav>
     </div>
 
-
-
-
-
     <!-- Responsive Navigation Menu (Hamburger Menu) -->
     <div x-data="{ open: false }" :class="{ 'block': open, 'hidden': !open }" class="lg:hidden">
         <div class="pt-2 pb-3 space-y-1">
@@ -173,11 +169,12 @@
 
     {{-- @yield('content') --}}
     <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4 grid grid-cols-1 md">
         <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-4">
             <!-- Section 1: Brand -->
             <div class="flex flex-col items-center md:items-start">
                 <h2 class="text-2xl font-bold mb-2">Oceanis</h2>
-                <p class="text-gray-400 text-sm">Creating solutions for a better tomorrow.</p>
+                <p class="text-gray-400 text-sm">Save the Ocean through Oceanis.</p>
             </div>
 
             <!-- Section 2: Links -->
@@ -185,8 +182,8 @@
                 <h3 class="text-xl font-semibold mb-2">Quick Links</h3>
                 <ul class="space-y-2 text-gray-400">
                     <li><a href="{{ Auth::check() ? route('dashboard') : route('home.index') }}" class="hover:text-white">Home</a></li>
-                    <li><a href="{{ route('aboutUs') }}" class="hover:text-white">About Us</a></li>
-                    <li><a href="{{ route('contact') }}" class="hover:text-white">Contact</a></li>
+                    <li><a href="{{ route('aboutUs', ['id'=>1]) }}" class="hover:text-white">About Us</a></li>
+                    <li><a href="{{ route('contact', ['id'=>1]) }}" class="hover:text-white">Contact</a></li>
                     <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
                 </ul>
             </div>

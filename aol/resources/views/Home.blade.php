@@ -10,13 +10,24 @@
     </button>
 </form>
 
+<div class="relative w-full h-[400px]">
+        <!-- Background Image -->
+        <img src="https://plus.unsplash.com/premium_photo-1666286163385-abe05f0326c4?q=80&w=1975&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Ocean" class="absolute inset-0 w-full h-full object-cover">
+
+        <!-- Text Overlay -->
+        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+            <h2 class="text-2xl md:text-4xl font-bold text-white drop-shadow-lg text-center">
+                Save the ocean through Oceanis.
+            </h2>
+        </div>
+    </div>
 
 <section class="py-32 bg-gray-50">
     <div class="max-w-screen-xl mx-auto px-4 md:px-8">
         <ul class="grid gap-x-8 gap-y-12 mt-16 sm:grid-cols-2 lg:grid-cols-3 justify-center mx-auto">
             @foreach ($datas as $data)
                 <li class="w-full mx-auto group sm:max-w-sm bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
-
                     <!-- Tambahkan Link -->
                     <a href="{{ route('datas.details', $data->id) }}" class="block">
                         <img src="{{ Storage::disk('s3')->url('/images/' . $data->photo_url) }}" loading="lazy" alt="{{ $data->Title }}" class="w-full h-48 object-cover" />
@@ -32,7 +43,6 @@
                             </p>
                         </div>
                     </a>
-
                 </li>
             @endforeach
         </ul>

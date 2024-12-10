@@ -51,7 +51,7 @@
 
 
                 <td class="p-4">
-                    <img src="{{ asset('storage/' . $data->photo_url) }}"" class="w-30 h-40 max-w-full max-h-full " alt="Apple Watch">
+                    <img src="{{ Storage::disk('s3')->url('/images/' . $data->photo_url) }}" class="w-30 h-40 max-w-full max-h-full " alt="Apple Watch">
                 </td>
                 <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
                     {{ $data->Title }}
