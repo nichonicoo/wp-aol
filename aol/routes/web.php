@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DonationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DatasController;
 use App\Http\Controllers\HomeController;
@@ -37,6 +38,13 @@ Route::middleware('auth')->group(function () {
 
     //details
     Route::get('/datas/{id}/details', [DatasController::class, 'data_detail'])->name('datas.details');
+
+    // donation
+    Route::get('/donate', [DonationController::class, 'view_donation'])->name('donate.form');
+    Route::post('/donate', [DonationController::class, 'process'])->name('donate.process');
+    Route::get('/donate/confirm/{id}', [DonationController::class, 'confirmDonation'])->name('donate.confirm');
+
+    Route::get('/donate/success/{id}', [DonationController::class, 'success'])->name('donate.success');
 
 });
 

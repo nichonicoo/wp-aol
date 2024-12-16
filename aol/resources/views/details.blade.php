@@ -1,61 +1,71 @@
 @extends('layouts.navigation')
 
 @section('content')
-<div class="container mt-5">
-    <div class="card shadow-lg" style="max-width: 800px; margin: auto; border-radius: 12px; overflow: hidden;">
-        <div class="row g-0">
-            <!-- Content Section -->
-            <div class="col-md-12">
-                <div class="card-body text-center">
-                    <h2 class="card-title mb-4 text-primary fw-bold" style="font-size: 2.5rem;">Data Details</h2>
-                </div>
-            </div>
-        </div>
 
-        <div class="row g-0">
-            <!-- Image Section -->
-            @if ($id->photo_url)
-                <div class="col-md-4">
-                    <img src="{{ Storage::disk('s3')->url('/images/' . $id->photo_url) }}"
-                         class="img-fluid"
-                         alt="Data Image"
-                         style="height: 100%; object-fit: cover;">
-                </div>
-            @endif
+    <div class="flex justify-center items-center min-h-screen bg-gray-100 font-sans">
 
-            <!-- Data Info Section -->
-            <div class="col-md-8">
-                <div class="card-body">
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><strong>Title:</strong> {{ $id->Title }}</li>
-                        <li class="mb-2"><strong>Description:</strong> {{ $id->Description }}</li>
-                        <li class="mb-2"><strong>Location:</strong> {{ $id->Location }}</li>
-                        <li class="mb-2"><strong>Status:</strong> {{ $id->Status }}</li>
-                        <li class="mb-2"><strong>Difficulty Level:</strong> {{ $id->Tingkat_Kesulitan }}</li>
-                        <li class="mb-2"><strong>Created On:</strong> {{ $id->Tanggal_Pembuatan }}</li>
-                    </ul>
+        <div class="relative w-full max-w-lg p-8">
+
+            <div class="absolute -inset-2 bg-gray-300 opacity-25 rounded-lg blur-2xl"></div>
+
+            <!-- Card -->
+            <div class="relative bg-white p-8 rounded-xl shadow-2xl border border-gray-200">
+                <!-- Card Heading -->
+                <h2 class="text-3xl font-bold text-gray-800 text-center mb-6 tracking-wide">
+                    Data Details
+                </h2>
+
+                <!-- Image Section (Rectangle) -->
+                @if ($id->photo_url)
+                    <div class="flex justify-center mb-6">
+                        <img src="{{ Storage::disk('s3')->url('images/' . $id->photo_url) }}" alt="Data Image"
+                            class="w-full h-48 object-cover rounded-md shadow-md border border-gray-200">
+                    </div>
+                @endif
+
+                <!-- Data Information -->
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span class="font-medium text-gray-500">Title</span>
+                        <span class="text-gray-800 font-semibold">{{ $id->Title }}</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="font-medium text-gray-500">Description</span>
+                        <span class="text-gray-800 font-semibold">{{ $id->Description }}</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="font-medium text-gray-500">Location</span>
+                        <span class="text-gray-800 font-semibold">{{ $id->Location }}</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="font-medium text-gray-500">Status</span>
+                        <span class="text-gray-800 font-semibold">{{ $id->Status }}</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="font-medium text-gray-500">Difficulty Level</span>
+                        <span class="text-gray-800 font-semibold">{{ $id->Tingkat_Kesulitan }}</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="font-medium text-gray-500">Created On</span>
+                        <span class="text-gray-800 font-semibold">{{ $id->Tanggal_Pembuatan }}</span>
+                    </div>
+                </div>
+
+                <!-- Back Button -->
+                <div class="mt-8 flex justify-center">
+                    @if (Auth::check())
+                        <a href="{{ route('dashboard') }}"
+                            class="w-full text-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 shadow-md">
+                            Back to Dashboard
+                        </a>
+                    @else
+                        <a href="{{ route('home.index') }}"
+                            class="w-full text-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 shadow-md">
+                            Back to Homepage
+                        </a>
+                    @endif
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Back Button -->
-   <!-- Back Button -->
-<div class="text-center mt-4">
-    @if (Auth::check())
-        <!-- Jika sudah login -->
-        <a href="{{ route('dashboard') }}"
-           class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded transition duration-300">
-            Back to Dashboard
-        </a>
-    @else
-        <!-- Jika belum login -->
-        <a href="{{ route('home.index') }}"
-           class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded transition duration-300">
-            Back to Homepage
-        </a>
-    @endif
-</div>
-
-</div>
 @endsection

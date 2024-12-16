@@ -37,7 +37,7 @@ use Yaza\LaravelGoogleDriveStorage\Gdrive;
 
     $datas = Datas::where('users_id', Auth::id())->get();
 
-    // Pass the data to the view
+
     return view('dashboard', compact('datas'));
     }
 
@@ -48,7 +48,7 @@ use Yaza\LaravelGoogleDriveStorage\Gdrive;
 
     $datas = datas::paginate(3);
 
-    // Pass the data to the view
+
     return view('Home', compact('datas'));
     }
 
@@ -59,13 +59,11 @@ use Yaza\LaravelGoogleDriveStorage\Gdrive;
 
     $datas2 = datas::all();
 
-    // Pass the data to the view
+
     return view('AllReports', compact('datas2'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
         // Define the available options for location, difficulty, and status
@@ -78,18 +76,16 @@ use Yaza\LaravelGoogleDriveStorage\Gdrive;
     }
 
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
 {
     // dd($request);
-    // Check if the user is authenticated
+    // Check if the user is auth
     if (!Auth::check()) {
         return redirect()->route('login'); // Redirect to login if the user is not authenticated
     }
 
-    // Validate the incoming request
+    // Validate
     $data = $request->validate([
         'Title' => 'required',
         'Description' => 'required',
@@ -150,9 +146,9 @@ use Yaza\LaravelGoogleDriveStorage\Gdrive;
     $data['users_id'] = Auth::id();
 
     // Set the authenticated user's ID for the 'users_id' column
-    $data['users_id'] = Auth::id();  // Ensure the user is authenticated
+    $data['users_id'] = Auth::id();
 
-    // Store the product data in the database
+
     // Datas::create($data);
 
     $data['Tanggal_Pembuatan'] = now()->toDateString();
@@ -168,7 +164,7 @@ use Yaza\LaravelGoogleDriveStorage\Gdrive;
         'photo_url' =>  $data['photo_url']
     ]);
 
-    // Redirect to the navigation page after successful submission
+    
     return redirect()->route('dashboard');
 
 }

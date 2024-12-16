@@ -49,6 +49,10 @@
                             class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
                             <a href="{{ route('allreports.index') }}">All Reports</a>
                         </li>
+                        <li
+                            class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
+                            <a href="{{ route('donate.process') }}">Donations</a>
+                        </li>
                     </ul>
                 </div>
 
@@ -166,6 +170,8 @@
             @yield('content')
         </main>
     </div>
+
+    @yield('scripts')
 
     {{-- @yield('content') --}}
     <footer class="bg-gray-900 text-white py-8">

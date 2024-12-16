@@ -15,7 +15,7 @@
 
 <div class="relative w-full h-[400px]">
         <!-- Background Image -->
-        <img src="https://plus.unsplash.com/premium_photo-1666286163385-abe05f0326c4?q=80&w=1975&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        <img src="https://images.pexels.com/photos/847393/pexels-photo-847393.jpeg"
             alt="Ocean" class="absolute inset-0 w-full h-full object-cover">
 
         <!-- Text Overlay -->
@@ -33,7 +33,7 @@
                 <li class="w-full mx-auto group sm:max-w-sm bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
                     <!-- Bungkus dengan Link -->
                     <a href="{{ route('datas.details', $data->id) }}" class="block">
-                        <img src="{{ Storage::disk('s3')->url('/images/' . $data->photo_url) }}" loading="lazy" alt="{{ $data->Title }}" class="w-full h-48 object-cover" />
+                        <img src="{{ asset('storage/' . $data->photo_url) }}" loading="lazy" alt="{{ $data->Title }}" class="w-full h-48 object-cover" />
                         <div class="p-4 space-y-3">
                             <span class="block text-indigo-500 text-xs font-medium uppercase">
                                 {{ \Carbon\Carbon::parse($data->created_at)->format('M d, Y') }}
