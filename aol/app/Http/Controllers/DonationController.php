@@ -72,6 +72,10 @@ class DonationController extends Controller
     }
 
     public function view_donation(){
-        return view('donate.donate');
+
+        $totals = Transaction::where('status', 'success')->sum('amount');
+        return view('donate.donate', compact('totals'));
     }
+
+
 }

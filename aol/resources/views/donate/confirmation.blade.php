@@ -6,7 +6,12 @@
     <h2 class="text-2xl font-semibold text-gray-800 mb-4">Confirm Donation</h2>
 
     <div class="mb-4">
-        <p class="text-lg">You are about to donate <strong>IDR {{ number_format($transaction->amount, 0, ',', '.') }}</strong></p>
+        <p class="text-lg">You are about to donate</p>
+    </div>
+    <div class="text-center">
+        <h2 class="mb-4 text-4xl font-bold text-blue-600 dark:text-blue">
+            <strong>IDR {{ number_format($transaction->amount, 0, ',', '.') }}</strong>
+        </h2>
     </div>
 
     <div id="payment-form">

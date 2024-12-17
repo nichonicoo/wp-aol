@@ -20,6 +20,7 @@
             <h2 class="text-2xl md:text-4xl font-bold text-white drop-shadow-lg text-center">
                 Save the ocean through Oceanis.
             </h2>
+
         </div>
     </div>
 
@@ -30,7 +31,7 @@
                 <li class="w-full mx-auto group sm:max-w-sm bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
                     <!-- Tambahkan Link -->
                     <a href="{{ route('datas.details', $data->id) }}" class="block">
-                        <img src="{{ asset('storage/' . $data->photo_url) }}" loading="lazy" alt="{{ $data->Title }}" class="w-full h-48 object-cover" />
+                        <img src="{{ Storage::disk('s3')->url('/images/' . $data->photo_url) }}" loading="lazy" alt="{{ $data->Title }}" class="w-full h-48 object-cover" />
                         <div class="p-4 space-y-3">
                             <span class="block text-indigo-500 text-xs font-medium uppercase">
                                 {{ \Carbon\Carbon::parse($data->Tanggal_Pembuatan)->format('M d, Y') }}

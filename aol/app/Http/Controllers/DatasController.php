@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\datas;
+use App\Models\Transaction;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -47,9 +48,9 @@ use Yaza\LaravelGoogleDriveStorage\Gdrive;
     // return view('layouts.navigation', compact('datas'));
 
     $datas = datas::paginate(3);
+    $totals = Transaction::where('status', 'success')->sum('amount');
 
-
-    return view('Home', compact('datas'));
+    return view('Home', compact('datas', 'totals'));
     }
 
     public function allreports()
@@ -164,7 +165,7 @@ use Yaza\LaravelGoogleDriveStorage\Gdrive;
         'photo_url' =>  $data['photo_url']
     ]);
 
-    
+
     return redirect()->route('dashboard');
 
 }

@@ -38,7 +38,7 @@
                     @foreach ($datas2 as $data)
                         <tr class="border-b hover:bg-gray-50">
                             <td class="p-4">
-                                <img src="{{ asset('storage/' . $data->photo_url) }}"
+                                <img src="{{ Storage::disk('s3')->url('/images/' . $data->photo_url) }}"
                                     class="w-20 h-20 object-cover rounded-lg" alt="Image">
                             </td>
                             <td class="px-6 py-4 font-medium text-gray-800">{{ $data->Title }}</td>
